@@ -1,15 +1,13 @@
-//your variable declarations here
 Spaceship one = new Spaceship();
-Star[] in = new Star[200];
+Stars[] in = new Stars[200];
 public void setup() 
 {
-  //your code here
   size(500, 500);
   fill(255);
   one = new Spaceship();
   for(int i = 0; i < in.length; i++)
   {
-  	in[i] = new Star();
+  	in[i] = new Stars();
   }
 }
 public void draw() 
