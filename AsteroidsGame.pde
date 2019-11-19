@@ -1,13 +1,13 @@
 Spaceship one = new Spaceship();
-Stars[] in = new Stars[200];
+Stars[] twoq = new Stars[200];
 public void setup() 
 {
   size(500, 500);
   fill(255);
   one = new Spaceship();
-  for(int i = 0; i < in.length; i++)
+  for(int i = 0; i < twoq.length; i++)
   {
-  	in[i] = new Stars();
+  	twoq[i] = new Stars();
   }
 }
 public void draw() 
@@ -16,9 +16,9 @@ public void draw()
   background(0);
   one.move();
   one.show();
-  for(int i = 0; i < in.length; i++)
+  for(int i = 0; i < twoq.length; i++)
   {
-  	in[i].show();
+  	twoq[i].show();
   }
 }
 public void keyPressed()
