@@ -1,16 +1,16 @@
 //your variable declarations here
-Spaceship one = new Spaceship();
-Stars[] in = new Stars[200];
+Spaceship onel = new Spaceship();
+Stars[] jk = new Stars[200];
 Asteroids[] bob = new Asteroids[10];
 public void setup() 
 {
   //your code here
   size(500, 500);
   fill(255);
-  one = new Spaceship();
-  for(int i = 0; i < in.length; i++)
+  onel = new Spaceship();
+  for(int i = 0; i < jk.length; i++)
   {
-    in[i] = new Stars();
+    jk[i] = new Stars();
   }
   for(int  i = 0; i < bob.length; i++)
   {
@@ -21,11 +21,11 @@ public void draw()
 {
   //your code here
   background(0);
-  one.move();
-  one.show();
-  for(int i = 0; i < in.length; i++)
+  onel.move();
+  onel.show();
+  for(int i = 0; i < jk.length; i++)
   {
-    in[i].show();
+    jk[i].show();
   }
   for(int i = 0; i < bob.length; i++)
   {
@@ -38,19 +38,19 @@ public void keyPressed()
 {
   if(key == 'h')
   {
-    one.hyperspace();
-    one.stopq();
+    onel.hyperspace();
+    onel.stopq();
   }
   if(key == 'j')
   {
-    one.turn(30);
+    onel.turn(30);
   }
   if(key == 'y')
   {
-    one.turn(-30);
+    onel.turn(-30);
   }
   if(key == 'p')
   {
-    one.accelerate(.5);
+    onel.accelerate(.5);
   }
 }
