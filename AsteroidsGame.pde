@@ -23,11 +23,8 @@ public void draw()
 {
   //your code here
   background(0);
-  for(int i = 0; i < ponel.length; i++)
-  {
-    ponel.move();
-    ponel.show();
-  }
+  ponel.move();
+  ponel.show();
   jib.show();
   for(int i = 0; i < ljk.length; i++)
   {
@@ -55,8 +52,12 @@ public void keyPressed()
   {
     ponel.turn(-30);
   }
-  if(key == 'p')
+  if(key == 'g')
   {
-    ponel.accelerate(.5);
+    ponel.accelerate(.3);
+  }
+  if(key == 'b')
+  {
+    jib.accelerate(.5);
   }
 }
