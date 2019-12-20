@@ -1,63 +1,71 @@
-//your variable declarations here
-Spaceship ponel = new Spaceship();
-Stars[] ljk = new Stars[200];
-Asteroids[] bob = new Asteroids[10];
-Bullet jib = new Bullet();
-public void setup() 
+Star[] skyy = new Star [200];
+ArrayList <Asteroid> qwe = new ArrayList <Asteroid>();
+Spaceship anch = new Spaceship();
+ArrayList <Bullet> gepa = new ArrayList <Bullet>();
+int a = 10;
+int lev = 1;
+public void setup()
 {
-  //your code here
-  size(500, 500);
-  fill(255);
-  ponel = new Spaceship();
-  jib = new Bullet();
-  for(int i = 0; i < ljk.length; i++)
+  size(500,500);
+  background(0);
+  for(int i = 0; i < skyy.length; i++)
   {
-    ljk[i] = new Stars();
+    skyy[i] = new Star();
   }
-  for(int  i = 0; i < bob.length; i++)
+  for(int p = 0; p < a; p++)
   {
-    bob[i] = new Asteroids();
+    qwe.add(new Asteroid());
   }
 }
 public void draw() 
 {
-  //your code here
-  background(0);
-  ponel.move();
-  ponel.show();
-  jib.show();
-  for(int i = 0; i < ljk.length; i++)
-  {
-    ljk[i].show();
-  }
-  for(int i = 0; i < bob.length; i++)
-  {
-    bob[i].move();
-    bob[i].show();
-    bob[i].accelerate(Math.random()-.5);
-  }
-}
-public void keyPressed()
-{
-  if(key == 'h')
-  {
-    ponel.hyperspace();
-    ponel.stopq();
-  }
-  if(key == 'j')
-  {
-    ponel.turn(30);
-  }
-  if(key == 'y')
-  {
-    ponel.turn(-30);
-  }
-  if(key == 'g')
-  {
-    ponel.accelerate(.3);
-  }
-  if(key == 'b')
-  {
-    jib.accelerate(.5);
+ background(0);
+  for(int i = 0; i < skyy.length; i++)
+    {
+      skyy[i].show();
+    }
+  for(int p = 0; p < qwe.size(); p++)
+    {
+      qwe.get(p).show();
+      qwe.get(p).move();
+      if(dist(qwe.get(p).getMyX(), qwe.get(p).getMyY(), anch.getMyX(), anch.getMyY()) < 20){
+          qwe.remove(p);
+          break;
+        }
+        for(int k = 0; k < gepa.size(); k++)
+          if(dist(qwe.get(p).getMyX(), qwe.get(p).getMyY(), gepa.get(k).getMyX(), gepa.get(k).getMyY()) < 20){
+            qwe.remove(p);
+            gepa.remove(k);
+            break;
+        }
+    }
+  for(int k = 0; k < gepa.size(); k++){
+      gepa.get(k).show();
+      gepa.get(k).move();
+    }
+  anch.move();
+  anch.show();
+  if(qwe.size() == 0){
+    for(int p = 0; p < (a+lev*5-5); p++)
+    {
+      qwe.add(new Asteroid());
+    }
+    lev++;
   }
 }
+public void keyPressed(){
+  if(key == 'h'){
+      anch.stop();
+      anch.hyperSpace();
+  }else if(key == 'g'){
+      anch.accelerate(.5);
+  }else if(key == 'y'){
+      anch.turn(-30);
+  }else if(key == 'j'){
+      anch.turn(30);
+    }
+   else if(key == ' '){
+      if(gepa.size() < 8)
+        gepa.add(new Bullet());
+   }
+  }
